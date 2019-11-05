@@ -11,6 +11,8 @@
  * This should be an array of module namespaces used in the application.
  */
 return [
+    'Zend\Serializer',
+    'Zend\Log',
     'Zend\Mail',
     'Zend\Mvc\I18n',
     'Zend\Paginator',
@@ -31,5 +33,6 @@ return [
     'Zend\Validator',
     'ZendDeveloperTools',
     'Core',
+    'User',
     'Application',
 ];

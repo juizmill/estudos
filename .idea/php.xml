@@ -51,6 +51,13 @@
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-i18n-resources" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-developer-tools" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-debug" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zenddiagnostics" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zftool" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-log" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-file" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-version" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-serializer" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
     </include_path>
   </component>
   <component name="PhpUnit">
