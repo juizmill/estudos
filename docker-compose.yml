@@ -1,0 +1,19 @@
+db:
+  image: mysql
+  restart: always
+  expose:
+    - "3308"
+  environment:
+    MYSQL_ROOT_PASSWORD: 123456
+    MYSQL_USER: root
+    MYSQL_PASSWORD: 123
+    MYSQL_DATABASE: root
+
+zf:
+  build: .
+  dockerfile: Dockerfile
+  ports:
+   - "8088:8088"
+  volumes:
+   - .:/var/www
+
