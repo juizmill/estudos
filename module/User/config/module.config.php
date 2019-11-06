@@ -1,27 +1,30 @@
 <?php
 
-use Zend\Db\Sql\Literal;
+namespace User;
+
+use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
+
 return [
     'router' => [
-        'routers' => [
-            'user'=>[
-                'type'=>Literal::class,
-                'options'=>[
-                    'router' => '/user',
+        'routes' => [
+            'user' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route' => '/user',
                     'defaults' => [
-                        'controller' => \User\Controller\IndexController::class,
-                        'action' => 'register'
+                        'controller' => Controller\IndexController::class,
+                        'action' => 'register',
                     ]
                 ],
-                'may_terminate' =>true,
-                'child_routes' =>[
+                'may_terminate' => true,
+                'child_routes' => [
                     'default' => [
-                        'type' =>Segment::class,
+                        'type' => Segment::class,
                         'options' => [
-                                    // exemplo -> meusite.com/user/confirm/token/md5
+                            // exemplo -> meusite.com/user/confirm/token/md5
                             'route' => '[/:action][/token/:token]',
                             'constraints' => [
                                 'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
@@ -30,8 +33,8 @@ return [
                         ]
                     ]
                 ]
-            ],
 
+            ],
         ]
     ],
     'controllers' => [
@@ -39,15 +42,16 @@ return [
             Controller\IndexController::class => InvokableFactory::class
         ]
     ],
-    'view_manager' =>[
-        'template_map' =>[
-            'user/index/regiter' => __DIR__.'/../View/user/index/confirmar-email.phtml',
-            'user/index/new-password.phtml' => __DIR__.'/../View/user/index/new-password.phtml',
-            'user/index/recovered-password.phtml' => __DIR__.'/../View/user/index/recovered-password.phtml',
-            'user/index/register.phtml' => __DIR__.'/../View/user/index/register.phtml',
+    'view_manager' => [
+        'template_map' => [
+            'user/index/regiter'               => __DIR__.'/../View/user/index/register.phtml',
+            'user/index/confirmar-email'       => __DIR__.'/../View/user/index/confirmar-email.phtml',
+            'user/index/new-password'          => __DIR__.'/../View/user/index/new-password.phtml',
+            'user/index/recovered-password'    => __DIR__.'/../View/user/index/recovered-password.phtml',
         ],
         'template_path_stack' => [
-            __DIR__.'/../view',
+            __DIR__.'/../View',
         ]
     ]
+
 ];
