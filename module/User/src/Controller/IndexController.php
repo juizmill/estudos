@@ -16,14 +16,12 @@ class IndexController extends AbstractActionController
     public function recoveredPasswordAction()
     {
         $this->layout()->setTemplate('user/layout/layout');
-
         return new ViewModel();
     }
 
     public function newPasswordAction()
     {
         $this->layout()->setTemplate('user/layout/layout');
-
         return new ViewModel();
     }
 

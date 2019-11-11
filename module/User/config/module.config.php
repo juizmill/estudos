@@ -45,7 +45,6 @@ return [
     'view_manager' => [
         'template_map' => [
             'user/layout/layout'               => __DIR__.'/../View/layout/layout.phtml',
-
             'user/index/regiter'               => __DIR__.'/../View/user/index/register.phtml',
             'user/index/confirmar-email'       => __DIR__.'/../View/user/index/confirmar-email.phtml',
             'user/index/new-password'          => __DIR__.'/../View/user/index/new-password.phtml',
