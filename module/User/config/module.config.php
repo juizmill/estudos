@@ -2,6 +2,8 @@
 
 namespace User;
 
+use User\Model\Factory\UserTableFactory;
+use User\Model\UserTable;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -40,6 +42,11 @@ return [
     'controllers' => [
         'factories' =>[
             Controller\IndexController::class => InvokableFactory::class
+        ]
+    ],
+    'service_manager' =>[
+        'factories' => [
+            UserTable::class=> UserTableFactory::class
         ]
     ],
     'view_manager' => [
