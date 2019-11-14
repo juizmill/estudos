@@ -5,31 +5,38 @@
 <div class="register-box-body">
     <p class="login-box-msg">Registrar novo membro</p>
 
-    <form action="" method="POST">
-        <div class="form-group has-feedback">
-            <input type="text" name="name" class="form-control" placeholder="Full name" maxlength="120">
-            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-            <input type="text" name="email" class="form-control" placeholder="Email" maxlength="255">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-            <input type="password" name="password" class="form-control" placeholder="Password" maxlength="48">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-            <input type="password" name="verifypassword" class="form-control" placeholder="Retype password" maxlength="48">
-            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-        </div>
-
+    <?php
+        echo $this->flasMessenger()->render('error', ['alert alert-danger alert-dismissible']);
+        echo $this->flasMessenger()->render('success', ['alert alert-success alert-dismissible']);
+    ?>
+    <?php echo $this->form()->openTag($this->form); ?>
+    <div class="form-group<?php echo $this->formElementErrors($this->form->get('name')) ? ' has-error' : ''; ?> has-feedback">
+        <?php echo $this->formText($this->form->get('name'));?>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <?php echo $this->formElementErrors($this->form->get('name')); ?>
+    </div>
+    <div class="form-group<?php echo $this->formElementErrors($this->form->get('email')) ? ' has-error' : ''; ?> has-feedback">
+        <?php echo $this->formEmail($this->form->get('email'));?>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <?php echo $this->formElementErrors($this->form->get('email')); ?>
+    </div>
+    <div class="form-group<?php echo $this->formElementErrors($this->form->get('password')) ? ' has-error' : ''; ?> has-feedback">
+        <?php echo $this->formPassword($this->form->get('password'));?>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <?php echo $this->formElementErrors($this->form->get('password')); ?>
+    </div>
+    <div class="form-group<?php echo $this->formElementErrors($this->form->get('verifypassword')) ? ' has-error' : ''; ?> has-feedback">
+        <?php echo $this->formPassword($this->form->get('verifypassword'));?>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <?php echo $this->formElementErrors($this->form->get('verifypassword')); ?>
+    </div>
+    <?php echo $this->formHidden($this->form->get('csrf')); ?>
         <div class="row">
             <div class="pull-right col-xs-4">
                 <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
             </div>
         </div>
-    </form>
-
+<?php echo $this->form()->closeTag($this->form); ?>
     <a href="#" class="text-center">Eu já tenho cadastro</a><br>
     <a href="<?= $this->url('user/default', ['controller'=>'index', 'action'=>'recovered-password']); ?>">Esqueci a minha senha</a>
 </div>

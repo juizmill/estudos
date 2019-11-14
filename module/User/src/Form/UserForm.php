@@ -11,6 +11,7 @@ use Zend\Form\Form;
 use Zend\Db\Adapter\Adapter;
 use Zend\Validator\Csrf;
 
+
 class UserForm extends Form
 {
     public function __construct(Adapter $adapter)
@@ -18,10 +19,10 @@ class UserForm extends Form
         parent::__construct('user', []);
 
         $this->setInputFilter(new UserFilter($adapter));
-        $this ->$this->setAttribute(['method' => 'POST']);
+        $this->setAttributes(['method' => 'POST']);
 
         $name = new Text('name');
-        $name->setAttribute([
+        $name->setAttributes([
             'placeholder' => 'Full name',
             'class' => 'form-control',
             'maxlength' => 120
@@ -29,7 +30,7 @@ class UserForm extends Form
         $this->add($name);
 
         $email = new Email('email');
-        $email->setAttribute([
+        $email->setAttributes([
             'placeholder' => 'Email',
             'class' => 'form-control',
             'maxlength' => 255
@@ -37,15 +38,15 @@ class UserForm extends Form
         $this->add($email);
 
         $password = new Password('password');
-        $password->setAttribute([
+        $password->setAttributes([
             'placeholder' => 'Password',
             'class' => 'form-control',
             'maxlength' => 48
         ]);
         $this->add($password);
 
-        $verifyPassword = new Password('verifyPassword');
-        $password->setAttribute([
+        $verifyPassword = new Password('verifypassword');
+        $verifyPassword->setAttributes([
             'placeholder' => 'Retype Password',
             'class' => 'form-control',
             'maxlength' => 48
@@ -53,12 +54,12 @@ class UserForm extends Form
         $this->add($verifyPassword);
 
         $csrf = new Csrf('csrf');
+
         $csrf->setOptions([
            'csrf_options' => [
-               'timecut' => 600
+               'timeout' => 600
            ]
         ]);
-
         $this->add($csrf);
     }
 
