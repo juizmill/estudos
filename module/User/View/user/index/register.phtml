@@ -6,8 +6,8 @@
     <p class="login-box-msg">Registrar novo membro</p>
 
     <?php
-        //echo $this->flasMessenger()->render('error', ['alert alert-danger alert-dismissible']);
-        //echo $this->flasMessenger()->render('success', ['alert alert-success alert-dismissible']);
+        echo $this->flashMessenger()->render('error', ['alert alert-danger alert-dismissible']);
+        echo $this->flashMessenger()->render('success', ['alert alert-success alert-dismissible']);
     ?>
     <?php echo $this->form()->openTag($this->form); ?>
     <div

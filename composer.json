@@ -30,7 +30,6 @@
         "zendframework/zend-authentication": "^2.7",
         "zendframework/zend-math": "^3.2",
         "zendframework/zend-crypt": "^3.3",
-        "zendframework/zend-i18n-resources": "^2.6",
         "zendframework/zftool": "dev-master",
         "zendframework/zend-router": "^3.3",
         "zendframework/zend-mvc-plugin-flashmessenger": "^1.2",
