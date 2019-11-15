@@ -1,7 +1,7 @@
 <?php
 
-
 namespace User\Form\Filter;
+
 use Zend\Form\Element\Email;
 use Zend\Form\Form;
 use Zend\Validator\Csrf;
@@ -13,10 +13,10 @@ class NewPassword extends Form
         parent::__construct('new-password', []);
 
         $this->setInputFilter(new NewPasswordFilter());
-        $this->setAttribute(['method' => 'POST']);
+        $this->setAttribute('method', 'POST');
 
         $email = new Email('email');
-        $email->setAttribute([
+        $email->setAttributes([
             'placeholder' => 'Email',
             'class' => 'form-control',
             'maxlength' => 255]);
@@ -31,5 +31,4 @@ class NewPassword extends Form
 
         $this->add($csrf);
     }
-
 }

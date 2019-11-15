@@ -11,17 +11,15 @@ use Zend\Validator\NotEmpty;
 use Zend\Validator\StringLength;
 use Zend\InputFilter\Input;
 
-
 class UserFilter extends inputFIlter
 {
     public function __construct(Adapter $adapter)
     {
-
         $name = new Input('name');
         $name->setRequired(true)
             ->getFilterChain()->attachByName('stringtrim')->attachByName('stripTags');
         $name->getValidatorChain()->addValidator(new notEmpty())
-            ->addValidator(new StringLength(['max' =>120]));
+            ->addValidator(new StringLength(['max' => 120]));
         $this->add($name);
 
 
@@ -45,7 +43,7 @@ class UserFilter extends inputFIlter
         $password->setRequired(true)
             ->getFilterChain()->attachByName('stringtrim')->attachByName('stripTags');
         $password->getValidatorChain()->addValidator(new notEmpty())
-            ->addValidator(new StringLength(['max' =>48, 'min' => 5]))
+            ->addValidator(new StringLength(['max' => 48, 'min' => 5]))
             ->addValidator(new Identical([
                 'token' => 'verifypassword',
                 'mensagens' => [
@@ -58,9 +56,7 @@ class UserFilter extends inputFIlter
         $verifyPassword->setRequired(true)
             ->getFilterChain()->attachByName('stringtrim')->attachByName('stripTags');
         $verifyPassword->getValidatorChain()->addValidator(new notEmpty())
-            ->addValidator(new StringLength(['max' =>48, 'min' => 5]));
+            ->addValidator(new StringLength(['max' => 48, 'min' => 5]));
         $this->add($verifyPassword);
     }
-
-
 }

@@ -8,7 +8,6 @@ use User\Model\UserTable;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-
 class IndexController extends AbstractActionController
 {
     private $userForm;
@@ -18,13 +17,13 @@ class IndexController extends AbstractActionController
     {
         $this->userForm = $userForm;
         $this->userTable = $userTable;
-
-     }
+    }
 
     public function registerAction()
-    {  $this->layout()->setTemplate('user/layout/layout');
+    {
+        $this->layout()->setTemplate('user/layout/layout');
 
-        if($this->getRequest()->isPost()){
+        if ($this->getRequest()->isPost()) {
             die('POST');
         }
 

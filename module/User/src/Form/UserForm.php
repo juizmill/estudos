@@ -9,8 +9,7 @@ use Zend\Form\Element\Password;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
 use Zend\Db\Adapter\Adapter;
-use Zend\Validator\Csrf;
-
+use Zend\Form\Element\Csrf;
 
 class UserForm extends Form
 {
@@ -54,7 +53,6 @@ class UserForm extends Form
         $this->add($verifyPassword);
 
         $csrf = new Csrf('csrf');
-
         $csrf->setOptions([
            'csrf_options' => [
                'timeout' => 600
@@ -62,5 +60,4 @@ class UserForm extends Form
         ]);
         $this->add($csrf);
     }
-
 }

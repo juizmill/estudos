@@ -7,8 +7,6 @@ use User\Model\Factory\UserTableFactory;
 use User\Model\UserTable;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
-use Zend\Mvc\Controller\Plugin\FlashMessenger;
-
 
 return [
     'router' => [
@@ -41,13 +39,13 @@ return [
         ]
     ],
     'controllers' => [
-        'factories' =>[
+        'factories' => [
             Controller\IndexController::class => IndexControllerFactory::class
         ]
     ],
-    'service_manager' =>[
+    'service_manager' => [
         'factories' => [
-            UserTable::class=> UserTableFactory::class
+            UserTable::class => UserTableFactory::class
         ]
     ],
     'view_manager' => [
